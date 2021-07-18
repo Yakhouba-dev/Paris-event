@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter,Switch, Route, NavLink } from 'react-router-dom';
+import Accueil from './views/Accueil';
+import Recherche from './views/Recherche';
+import Favoris from './views/Favoris';
+import Evenement from './views/Evenement';
+import Listing from './views/Listing';
+import NotFound from './views/NotFound';
+
 
 function App() {
   return (
+    <BrowserRouter>
+    <Switch>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Route path="/" exact component={Accueil} />
+      <Route path="/recherche" exact component={Recherche} />
+      <Route path="/favoris" exact component={Favoris} />
+      <Route path="/listing" exact component={Listing} />
+      <Route path="/event/:id" exact component={Evenement} />
+      <Route path="/notfound" component={NotFound} />
+
     </div>
+
+    </Switch>
+    </BrowserRouter>
   );
 }
 
